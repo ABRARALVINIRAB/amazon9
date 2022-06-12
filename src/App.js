@@ -45,6 +45,7 @@ function App() {
   async function deleteNote({ id }) {
     const newNotesArray = notes.filter(note => note.id !== id);
     setNotes(newNotesArray);
+  
     await API.graphql({ query: deleteTodo, variables: { input: { id } } });
   }
   async function onChange(e) {
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Notes App .....</h1>
+      <h1>My Notes App .......</h1>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value })}
         placeholder="Note name"
